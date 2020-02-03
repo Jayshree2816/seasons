@@ -12,8 +12,8 @@ class App extends React.Component {
             err => this.setState({errorMessage: err.message})
         )
     }
-  
-    render(){
+
+    renderContent(){
         if(this.state.errorMessage && !this.state.lat){
             return <div>
                 Error : {this.state.errorMessage}
@@ -25,6 +25,12 @@ class App extends React.Component {
         }
 
         return <div><Spinner message= "Please accept location request" /></div>
+    }
+  
+    render(){
+        return (
+            <div> {this.renderContent()} </div>
+        )
     }
 }
 
